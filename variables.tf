@@ -21,6 +21,8 @@ variable "artifacts" {
 }
 
 variable "function_version" { }
+variable "env_name" { }
+
 
 variable "common_vars" {
   type = object({

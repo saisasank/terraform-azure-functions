@@ -18,9 +18,9 @@ provider "azurerm" {
 #     skip_tls_verify = "true"
 # }
 
-# provider "consul" {
-#   version = "2.10.0"
-#   address           = var.hashicorp.consul.address
-#   datacenter        = var.hashicorp.consul.datacenter
-#   token             = var.hashicorp.consul.token
-# }
+provider "consul" {
+  version = "2.10.0"
+  address           = var.hashicorp.consul.address
+  datacenter        = var.hashicorp.consul.datacenter
+  token             = var.hashicorp.consul.token
+}
