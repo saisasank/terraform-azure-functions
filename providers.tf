@@ -10,13 +10,13 @@ provider "azurerm" {
   client_secret   = var.deployment.client_secret
 }
 
-# provider "vault" {
-#     version = "2.14.0"
-#     #source = "hashicorp/vault"
-#     address         = var.hashicorp.vault.address
-#     token           = var.hashicorp.vault.token
-#     skip_tls_verify = "true"
-# }
+provider "vault" {
+    version = "2.15.0"
+    #source = "hashicorp/vault"
+    address         = var.hashicorp.vault.address
+    token           = var.hashicorp.vault.token
+    skip_tls_verify = "true"
+}
 
 provider "consul" {
   version = "2.10.0"
