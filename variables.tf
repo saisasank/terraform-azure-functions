@@ -64,7 +64,6 @@ variable "functionapp" {
 
     eventgrid_topics = list(string)
 
-    settings = map(any)
   }) # endof type
 } # endof functions
 

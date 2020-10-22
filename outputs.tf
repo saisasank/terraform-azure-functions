@@ -13,3 +13,7 @@ output "function_keys" {
 output "master_keys" {
   value =data.azurerm_function_app_host_keys.keyextraction.master_key
 }
+
+output "function_principal_id" {
+    value = azurerm_function_app.fnapp.identity[0].principal_id
+}
