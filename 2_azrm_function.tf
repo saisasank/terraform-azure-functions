@@ -19,9 +19,9 @@ resource "azurerm_function_app" "fnapp" {
     FUNCTIONS_EXTENSION_VERSION     = "3"
     WEBSITE_NODE_DEFAULT_VERSION    = "~10"
     APPINSIGHTS_INSTRUMENTATIONKEY  = var.common_vars.appinsights_id
-    VaultServiceName                = var.functionapp.full_name
-    VaultAddress                    = var.hashicorp.vault.address
-    VaultToken                      = var.hashicorp.vault.token
+    serviceName                     = var.functionapp.full_name
+    vaultAddress                    = var.hashicorp.vault.address
+    vaultToken                      = var.hashicorp.vault.token
     ConsulAddress                   = var.hashicorp.consul.address
     ConsulToken                     = var.hashicorp.consul.token
     SCM_DO_BUILD_DURING_DEPLOYMENT  = false

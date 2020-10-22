@@ -61,6 +61,10 @@ variable "functionapp" {
       key_permissions = list(string)
       secret_permissions = list(string)
     }) # endof keyvault
+
+    eventgrid_topics = list(string)
+
+    settings = map(any)
   }) # endof type
 } # endof functions
 
