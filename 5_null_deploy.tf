@@ -5,7 +5,9 @@ resource "time_sleep" "wait_x_seconds_after_creation" {
 
   depends_on = [
     azurerm_function_app.fnapp,
-    null_resource.download
+    null_resource.download,
+    null_resource.az_login,
+    null_resource.az_subscription_set
   ]  
 }
 
@@ -20,7 +22,9 @@ resource "null_resource" "deploy" {
   }
  
   depends_on = [
+    azurerm_function_app.fnapp,
     time_sleep.wait_x_seconds_after_creation,
+    null_resource.download,
     null_resource.az_login,
     null_resource.az_subscription_set
   ]

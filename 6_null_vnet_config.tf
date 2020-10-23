@@ -5,6 +5,12 @@ resource "time_sleep" "wait_x_seconds_after_deploy" {
 
   depends_on = [
     null_resource.deploy,
+    azurerm_function_app.fnapp,
+    time_sleep.wait_x_seconds_after_creation,
+    null_resource.az_login,
+    null_resource.az_subscription_set,
+    null_resource.download,
+    null_resource.deploy
   ]
 }
 
@@ -16,8 +22,12 @@ resource "null_resource" "vnet_config" {
   }
  
   depends_on = [
-    time_sleep.wait_x_seconds_after_deploy,
+    azurerm_function_app.fnapp,
+    time_sleep.wait_x_seconds_after_creation,
     null_resource.az_login,
-    null_resource.az_subscription_set
+    null_resource.az_subscription_set,
+    null_resource.download,
+    null_resource.deploy,
+    time_sleep.wait_x_seconds_after_deploy
   ]
 }
