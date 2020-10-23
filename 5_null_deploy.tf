@@ -5,6 +5,7 @@ resource "time_sleep" "wait_x_seconds_after_creation" {
 
   depends_on = [
     azurerm_function_app.fnapp,
+    null_resource.download
   ]  
 }
 
