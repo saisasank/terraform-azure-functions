@@ -12,7 +12,7 @@ resource "null_resource" "az_login" {
 # Set Azure Subscription
 resource "null_resource" "az_subscription_set" {
   provisioner "local-exec" {
-    command = " az account set --subscription ${var.deployment.subscription_id}"
+    command = "az account set --subscription ${var.deployment.subscription_id}"
   }
 
   depends_on = [null_resource.az_login]
