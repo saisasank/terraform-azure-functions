@@ -8,9 +8,9 @@ resource "time_sleep" "wait_x_seconds_after_vnet_config" {
     null_resource.az_subscription_set,
     azurerm_function_app.fnapp,
     null_resource.download,
-    time_sleep.wait_x_seconds_after_creation
-    null_resource.deploy
-    time_sleep.wait_x_seconds_after_deploy
+    time_sleep.wait_x_seconds_after_creation,
+    null_resource.deploy,
+    time_sleep.wait_x_seconds_after_deploy,
     null_resource.vnet_config
   ]
 }
@@ -31,10 +31,10 @@ data "azurerm_function_app_host_keys" "keyextraction" {
     null_resource.az_subscription_set,
     azurerm_function_app.fnapp,
     null_resource.download,
-    time_sleep.wait_x_seconds_after_creation
-    null_resource.deploy
-    time_sleep.wait_x_seconds_after_deploy
-    null_resource.vnet_config
+    time_sleep.wait_x_seconds_after_creation,
+    null_resource.deploy,
+    time_sleep.wait_x_seconds_after_deploy,
+    null_resource.vnet_config,
     time_sleep.wait_x_seconds_after_vnet_config
   ]
 }
