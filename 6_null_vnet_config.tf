@@ -17,6 +17,8 @@ resource "time_sleep" "wait_x_seconds_after_deploy" {
 #+=======================================================================================
 # Register vnet with function
 resource "null_resource" "vnet_config" {
+  count         = var.toggle_configure_vnet_connection ? 1 : 0
+
   provisioner "local-exec" {
     command = "az functionapp vnet-integration add -g ${var.common_vars.resource_group_name} -n  ${var.functionapp.fn_name} --vnet ${var.function_vnet.vnet_id} --subnet ${var.function_vnet.subnet_name}"
   }

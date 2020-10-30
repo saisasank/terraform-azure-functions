@@ -103,3 +103,13 @@ variable "tags" {
 }
 
 
+variable app_settings {
+  type        = map
+}
+
+variable "toggle_configure_dynatrace" { default="true" }
+variable "toggle_configure_kv_access_policy" { default="true" }
+variable "toggle_configure_vnet_connection" { default="true" }
+variable "toggle_configure_consul_node" { default="true" }
+variable "toggle_configure_consul_service" { default="true" }
+variable "toggle_configure_infra_to_vault" { default="true" }
