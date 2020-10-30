@@ -1,6 +1,7 @@
 #+=======================================================================================
 # ACL to Grant Identity access to  KeyVault
 resource "azurerm_key_vault_access_policy" "fnapp" {
+  count         = var.toggle_configure_kv_access_policy ? 1 : 0
   key_vault_id  = var.common_vars.keyvault_id
   tenant_id     = var.deployment.tenant_id
   object_id     = azurerm_function_app.fnapp.identity[0].principal_id

@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "app_svc_plan": {
+            "type": "string"
+        },
+        "app_svc": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "East US 2"
+        }
+    },
+    "variables": {
+    },
+    "resources": 
+    [
+        {
+            "apiVersion": "2016-08-01",
+            "name": "[parameters('app_svc')]",
+            "type": "Microsoft.Web/sites",
+            "properties": {
+                "name": "[parameters('app_svc')]",
+                "serverFarmId": "[parameters('app_svc_plan')]"
+            },
+            "location": "[parameters('location')]",
+            "resources": [
+                {
+                    "apiVersion": "2018-11-01",
+                    "name": "Dynatrace",
+                    "type": "siteextensions",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/sites', parameters('app_svc'))]"
+                    ],
+                    "properties": {}
+                }
+            ]
+        }
+    ],
+    "outputs": {
+    }
+}

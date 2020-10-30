@@ -1,8 +1,10 @@
 #============================================
 # Consul Service Registration
 resource "consul_service" "fn_svc" {
+  count   = var.toggle_configure_consul_service ? 1 : 0
+
   name    = var.functionapp.fn_name
-  node    = consul_node.fn_node.name
+  node    = consul_node.fn_node[count.index].name
   port    = 443
   tags    = [var.env_name, var.functionapp.fn_name]
 
