@@ -13,5 +13,13 @@ resource "azurerm_template_deployment" "dynatrace_functions_extension" {
         location        = var.common_vars.location
     }
     deployment_mode = "Incremental"
-    depends_on = [ ]
+    depends_on = [ 
+        azurerm_function_app.fnapp,
+        time_sleep.wait_x_seconds_after_creation,
+        null_resource.az_login,
+        null_resource.az_subscription_set,
+        null_resource.download,
+        time_sleep.wait_x_seconds_after_deploy,
+        time_sleep.wait_x_seconds_after_vnet_config
+    ]
 }
