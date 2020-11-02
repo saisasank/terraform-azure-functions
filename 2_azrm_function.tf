@@ -13,18 +13,11 @@ resource "azurerm_function_app" "fnapp" {
   identity {
     type = "SystemAssigned"
   }
- 
-  app_settings = {
-    FUNCTIONS_WORKER_RUNTIME        = "dotnet"
-    FUNCTIONS_EXTENSION_VERSION     = "3"
-    WEBSITE_NODE_DEFAULT_VERSION    = "~10"
-    APPINSIGHTS_INSTRUMENTATIONKEY  = var.common_vars.appinsights_id
-    serviceName                     = var.functionapp.full_name
-    vaultAddress                    = var.hashicorp.vault.address
-    vaultToken                      = var.hashicorp.vault.token
-    ConsulAddress                   = var.hashicorp.consul.address
-    ConsulToken                     = var.hashicorp.consul.token
-    SCM_DO_BUILD_DURING_DEPLOYMENT  = false
+
+  app_settings = var.app_settings
+
+  site_config {
+    always_on = true
   }
   
   depends_on          = [
