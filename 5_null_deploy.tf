@@ -18,7 +18,7 @@ resource "null_resource" "deploy" {
     version = local.file_version_name
   }
   provisioner "local-exec" {
-    command = "az functionapp deployment source config-zip -g ${var.common_vars.resource_group_name} -n ${var.functionapp.fn_name} --src ./${local.file_version_name} --auth-mode login"
+    command = "az functionapp deployment source config-zip -g ${var.common_vars.resource_group_name} -n ${var.functionapp.fn_name} --src ./${local.file_version_name}"
   }
  
   depends_on = [
