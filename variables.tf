@@ -17,7 +17,6 @@ variable "artifacts" {
     resource_group  = string
     storage_account = string
     container_name  = string
-    account_key     = string
   })
 }
 
