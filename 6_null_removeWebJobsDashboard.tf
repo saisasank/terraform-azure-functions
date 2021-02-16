@@ -7,7 +7,7 @@ resource "null_resource" "RemoveWebJobDash" {
   }
 
   provisioner "local-exec" {
-    command = "az functionapp appsettings delete -g ${var.common_vars.resource_group_name} -n  ${var.functionapp.fn_name.fn_name} --setting-names AzureWebJobsDashboard"
+    command = "az functionapp appsettings delete -g ${var.common_vars.resource_group_name} -n  ${var.functionapp.fn_name} --setting-names AzureWebJobsDashboard"
   }
  
   depends_on = [
