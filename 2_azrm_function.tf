@@ -17,6 +17,7 @@ resource "azurerm_function_app" "fnapp" {
   app_settings = var.app_settings
 
   site_config {
+    ftps_state  = "Disabled"
     always_on = true
   }
   
