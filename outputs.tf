@@ -15,17 +15,17 @@ output "master_keys" {
 }
 
 output "function_principal_id" {
-    value = azurerm_function_app.fnapp.identity[0].principal_id
+  value = azurerm_function_app.fnapp.identity[0].principal_id
 }
 
 output "function_sa_primary_connection_string" {
-  value = azurerm_storage_account.fnapp.primary_connection_string
+  value = data.azurerm_storage_account.fn_sa.primary_connection_string
 }
 
 output "function_sa_secondary_connection_string" {
-  value = azurerm_storage_account.fnapp.secondary_connection_string
+  value = data.azurerm_storage_account.fn_sa.secondary_connection_string
 }
 
 output "function_sa_id" {
-  value = azurerm_storage_account.fnapp.id
+  value = data.azurerm_storage_account.fn_sa.id
 }
