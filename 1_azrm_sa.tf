@@ -27,8 +27,8 @@ resource "azurerm_storage_account" "fn_sa_new" {
 # data.azurerm_storage_account.fn_sa.id
 #---------------------------------------------------------------------------------
 data "azurerm_storage_account" "fn_sa" {
-  name                = azurerm_storage_account.fn_sa.name
-  resource_group_name = var.common_vars.resource_group_name
+  name                = azurerm_storage_account.fn_sa_new.name
+  resource_group_name = azurerm_storage_account.fn_sa_new.resource_group_name
 
   depends_on = [azurerm_storage_account.fn_sa_new]
 }
