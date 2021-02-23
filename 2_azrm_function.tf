@@ -6,8 +6,8 @@ resource "azurerm_function_app" "fnapp" {
   resource_group_name        = var.common_vars.resource_group_name
   version                    = "3"
   app_service_plan_id        = var.common_vars.app_service_plan_id
-  storage_account_name       = azurerm_storage_account.fn_sa_new.name
-  storage_account_access_key = azurerm_storage_account.fn_sa_new.primary_access_key
+  storage_account_name       = azurerm_storage_account.fn_sa.name
+  storage_account_access_key = azurerm_storage_account.fn_sa.primary_access_key
   tags                       = var.tags
 
   identity {
