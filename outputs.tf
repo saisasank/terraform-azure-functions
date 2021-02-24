@@ -19,13 +19,13 @@ output "function_principal_id" {
 }
 
 output "function_sa_primary_connection_string" {
-  value = data.azurerm_storage_account.fn_sa_data.primary_connection_string
+  value = data.azurerm_storage_account.fn_sa.primary_connection_string
 }
 
 output "function_sa_secondary_connection_string" {
-  value = data.azurerm_storage_account.fn_sa_data.secondary_connection_string
+  value = data.azurerm_storage_account.fn_sa.secondary_connection_string
 }
 
 output "function_sa_id" {
-  value = data.azurerm_storage_account.fn_sa_data.id
+  value = data.azurerm_storage_account.fn_sa.id
 }
