@@ -108,6 +108,16 @@ variable app_settings {
   type        = map
 }
 
+
+variable "site_config" {
+  type = map
+  default = {
+    ftps_state  = "Disabled"
+    always_on = true
+  }
+}
+
+
 variable "toggle_configure_dynatrace" { default="true" }
 variable "toggle_configure_kv_access_policy" { default="true" }
 variable "toggle_configure_vnet_connection" { default="true" }
