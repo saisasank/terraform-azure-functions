@@ -17,3 +17,18 @@ resource "azurerm_storage_account" "fn_sa" {
 
   depends_on                    = [] 
 }
+
+
+#+=======================================================================================
+# Get Storage keys
+#---------------------------------------------------------------------------------
+# data.azurerm_storage_account.fn_sa.primary_connection_string
+# data.azurerm_storage_account.fn_sa.secondary_connection_string
+# data.azurerm_storage_account.fn_sa.id
+#---------------------------------------------------------------------------------
+data "azurerm_storage_account" "fn_sa" {
+  name                = var.functionapp.storage_account.name
+  resource_group_name = var.common_vars.resource_group_name
+
+  depends_on = [azurerm_storage_account.fn_sa]
+}
