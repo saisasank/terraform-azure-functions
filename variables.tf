@@ -109,13 +109,13 @@ variable app_settings {
 }
 
 
-variable "site_config" {
-  type = map
-  default = {
-    ftps_state  = "Disabled"
-    always_on = true
-  }
-}
+# variable "site_config" {
+#   type = map
+#   default = {
+#     ftps_state  = "Disabled"
+#     always_on = true
+#   }
+# }
 
 
 variable "toggle_configure_dynatrace" { default="true" }
