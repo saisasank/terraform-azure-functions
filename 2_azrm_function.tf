@@ -16,7 +16,7 @@ resource "azurerm_function_app" "fnapp" {
 
   app_settings = var.app_settings
 
-  site_config = var.site_config
+  # site_config = var.site_config
   
   depends_on          = [
       azurerm_storage_account.fn_sa
